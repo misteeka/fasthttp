@@ -14,7 +14,7 @@ func Post(URI string, body []byte, contentType string) (resp *fasthttp.Response,
 	req := fasthttp.AcquireRequest()
 	req.SetBody(body)
 	req.Header.SetMethod("POST")
-	req.Header.SetContentType(contentType) // e.g. "application/json"
+	req.Header.SetContentType(contentType)
 	req.SetRequestURI(URI)
 	resp = fasthttp.AcquireResponse()
 	err = fasthttp.Do(req, resp)
@@ -34,7 +34,7 @@ func PostByClient(URI string, body []byte, contentType string, client *fasthttp.
 	req := fasthttp.AcquireRequest()
 	req.SetBody(body)
 	req.Header.SetMethod("POST")
-	req.Header.SetContentType(contentType) // e.g. "application/json"
+	req.Header.SetContentType(contentType)
 	req.SetRequestURI(URI)
 	resp = fasthttp.AcquireResponse()
 	err = client.Do(req, resp)
