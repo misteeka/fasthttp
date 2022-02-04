@@ -1,4 +1,4 @@
-module fastnet
+module github.com/misteeka/fastnet
 
 go 1.17
 
