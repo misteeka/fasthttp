@@ -1,4 +1,4 @@
-package fastnet
+package fasthttp
 
 import "github.com/valyala/fasthttp"
 
