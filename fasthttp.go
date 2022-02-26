@@ -45,11 +45,12 @@ func PostByClient(URI string, body []byte, client *fasthttp.Client) (resp *fasth
 	return
 }
 
-func Put(URI string, body []byte, contentType string) (resp *fasthttp.Response, err error) {
+func Put(URI string, body []byte) (resp *fasthttp.Response, err error) {
 	req := fasthttp.AcquireRequest()
 	req.SetRequestURI(URI)
 	req.Header.SetContentType("application/json")
 	req.Header.SetMethodBytes([]byte("PUT"))
+	req.SetBody(body)
 	resp = fasthttp.AcquireResponse()
 	err = fasthttp.Do(req, resp)
 
@@ -57,11 +58,12 @@ func Put(URI string, body []byte, contentType string) (resp *fasthttp.Response, 
 	return
 }
 
-func Delete(URI string, body []byte, contentType string) (resp *fasthttp.Response, err error) {
+func Delete(URI string, body []byte) (resp *fasthttp.Response, err error) {
 	req := fasthttp.AcquireRequest()
 	req.SetRequestURI(URI)
 	req.Header.SetContentType("application/json")
 	req.Header.SetMethodBytes([]byte("DELETE"))
+	req.SetBody(body)
 	resp = fasthttp.AcquireResponse()
 	err = fasthttp.Do(req, resp)
 
